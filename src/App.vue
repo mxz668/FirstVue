@@ -35,7 +35,7 @@ export default {
         counter: 0,
         msg:'',
         input2:'',
-        url: 'http://127.0.0.1:8088/drip/testController/saveTest.json',
+        url: this.serverIp + '/drip/testController/saveTest.json',
       }
     },
     methods:{
