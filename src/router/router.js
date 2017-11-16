@@ -15,11 +15,15 @@ export default new Router({
     },
     {
       path: '/view2',
+      name: 'view2',
       component: View2
     },
     {
       path: '/*',
-      component: View1
+      components: {
+                  default: View2,
+                    view1: View1
+                  }
     }
   ]
 })

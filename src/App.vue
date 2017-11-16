@@ -3,11 +3,12 @@
   <div id="app">
     <!--<img src="./assets/logo.png">-->
     <hello></hello>
-    <p>
-      <router-link to="/view1">Go to view1</router-link>
-      <router-link to="/view2">Go to view2</router-link>
-    <p/>
-    <router-view></router-view>
+    <!--<p>-->
+      <!--<router-link to="/view1">Go to view1</router-link>-->
+      <!--<router-link to="/view2">Go to view2</router-link>-->
+    <!--<p/>-->
+    <!--<router-view></router-view>-->
+    <router-view name="view1"></router-view>
 
     <div>
       <button v-on:click="importInfo">增加 1</button>
@@ -35,7 +36,7 @@ export default {
         counter: 0,
         msg:'',
         input2:'',
-        url: this.serverIp + '/drip/testController/saveTest.json',
+        url: this.serverIp + '/drip/testController/saveTest.json'
       }
     },
     methods:{
