@@ -13,7 +13,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome!'
+      msg: 'Welcome'
     }
   }
 }

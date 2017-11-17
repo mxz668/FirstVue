@@ -10,33 +10,84 @@
     <!--<router-view></router-view>-->
     <router-view name="view1"></router-view>
 
-    <div>
-      <button v-on:click="importInfo">增加 1</button>
-      <p>这个按钮被点击了 {{ counter }} 次。</p>
-    </div>
-
-    <div>
-      <input type="text" @keyup="input" v-model="input2">
-      <p>输入：{{ msg }}</p>
-    </div>
+    <el-row>
+      <el-col :span="12">
+        <div>
+          <button v-on:click="importInfo">增加 1</button>
+          <p>这个按钮被点击了 {{ counter }} 次。</p>
+        </div>
+      </el-col>
+      <el-col :span="12">
+        <div>
+          <input type="text" @keyup="input" v-model="input2">
+          <p>输入：{{ msg }}</p>
+        </div>
+      </el-col>
+    </el-row>
+    <el-col :span="24">
+      <!--<router-view name="baseTree"></router-view>-->
+      <!--<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>-->
+    </el-col>
+    <btree></btree>
   </div>
 
 </template>
 
 <script>
 import Hello from './components/HelloWorld'
+import BaseTree from './components/Tree.vue'
 
 export default {
     name: 'app',
     components: {
-      Hello
+      hello:Hello,
+      btree:BaseTree
     },
     data () {
       return {
         counter: 0,
         msg:'',
         input2:'',
-        url: this.serverIp + '/drip/testController/saveTest.json'
+        url: this.serverIp + '/drip/testController/saveTest.json',
+        data: [{
+          label: '一级 1',
+          children: [{
+            label: '二级 1-1',
+            children: [{
+              label: '三级 1-1-1'
+            }]
+          }]
+        }, {
+          label: '一级 2',
+          children: [{
+            label: '二级 2-1',
+            children: [{
+              label: '三级 2-1-1'
+            }]
+          }, {
+            label: '二级 2-2',
+            children: [{
+              label: '三级 2-2-1'
+            }]
+          }]
+        }, {
+          label: '一级 3',
+          children: [{
+            label: '二级 3-1',
+            children: [{
+              label: '三级 3-1-1'
+            }]
+          }, {
+            label: '二级 3-2',
+            children: [{
+              label: '三级 3-2-1'
+            }]
+          }]
+        }],
+        faultProps: {
+          children: 'children',
+          label: 'label'
+        }
       }
     },
     methods:{
